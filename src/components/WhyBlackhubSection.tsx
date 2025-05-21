@@ -1,5 +1,5 @@
 
-import { CheckCircle, Shield, Zap, DollarSign, Users } from "lucide-react";
+import { CheckCircle, Shield, Zap, Users } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
 export default function WhyBlackhubSection() {
@@ -20,9 +20,9 @@ export default function WhyBlackhubSection() {
       description: "Certificações de segurança e proteção contra fraudes em todos os níveis.",
     },
     {
-      icon: <DollarSign className="text-blackhub-lime" size={24} />,
-      title: "Taxas Competitivas",
-      description: "Melhor custo-benefício do mercado com transparência total.",
+      icon: <CheckCircle className="text-blackhub-lime" size={24} />,
+      title: "Sem Taxas Extras",
+      description: "Serviço completo sem custos adicionais ou taxas escondidas.",
     },
     {
       icon: <CheckCircle className="text-blackhub-lime" size={24} />,
@@ -115,7 +115,7 @@ export default function WhyBlackhubSection() {
               </div>
 
               {/* Floating crypto card */}
-              <div className="absolute -bottom-10 -right-10 w-64 bg-blackhub-black border border-gray-800 rounded-lg p-4 shadow-lg animate-float">
+              <div className="absolute -bottom-10 -right-10 md:right-[-40px] w-64 bg-blackhub-black border border-gray-800 rounded-lg p-4 shadow-lg animate-float">
                 <h3 className="text-sm font-medium mb-2">Saque em Crypto</h3>
                 <div className="bg-blackhub-dark-gray/80 rounded-lg p-3 mb-3">
                   <div className="flex items-center justify-between">

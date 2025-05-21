@@ -7,7 +7,8 @@ import {
   BarChart3, 
   Lock, 
   RefreshCcw, 
-  SmartphoneIcon 
+  SmartphoneIcon, 
+  Bell 
 } from "lucide-react";
 
 interface FeatureCardProps {
@@ -88,9 +89,9 @@ export default function FeaturesSection() {
             delay={500}
           />
           <FeatureCard
-            icon={<CircleCheck size={24} />}
-            title="Suporte Especializado"
-            description="Suporte técnico dedicado 24/7 para resolver qualquer problema rapidamente."
+            icon={<Bell size={24} />}
+            title="Aplicativo com Notificações"
+            description="Aplicativo próprio com notificações em tempo real para todas as transações do seu negócio."
             delay={600}
           />
         </div>

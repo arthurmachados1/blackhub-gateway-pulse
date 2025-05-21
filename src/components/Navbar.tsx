@@ -22,6 +22,13 @@ export default function Navbar() {
     };
   }, [scrolled]);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -34,8 +41,8 @@ export default function Navbar() {
     <nav className={cn("fixed top-0 w-full z-50 transition-all duration-300", 
       scrolled ? "bg-blackhub-dark-gray/90 backdrop-blur-lg py-3 shadow-lg" : "bg-transparent py-4 sm:py-5")}>
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
+        {/* Logo with onClick to scroll to top */}
+        <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
           <div className="h-8 w-8 sm:h-9 sm:w-9 rounded bg-blackhub-lime flex items-center justify-center">
             <span className="text-black font-bold text-lg sm:text-xl">B</span>
           </div>
@@ -51,9 +58,6 @@ export default function Navbar() {
           </a>
           <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Por que BlackHub?
-          </a>
-          <a href="#free" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
-            Gratuito
           </a>
           <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Depoimentos
@@ -92,9 +96,6 @@ export default function Navbar() {
           </a>
           <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Por que BlackHub?
-          </a>
-          <a href="#free" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
-            Gratuito
           </a>
           <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Depoimentos

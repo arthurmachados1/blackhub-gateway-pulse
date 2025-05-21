@@ -6,7 +6,6 @@ import FeaturesSection from "@/components/FeaturesSection";
 import WhyBlackhubSection from "@/components/WhyBlackhubSection";
 import FreeSection from "@/components/FreeSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -44,9 +43,13 @@ const Index = () => {
       observer.observe(section);
     });
 
+    // Add a special class to handle overflow on mobile devices
+    document.body.classList.add("overflow-x-hidden");
+
     return () => {
       // Clean up the observer when the component unmounts
       sections.forEach((section) => observer.unobserve(section));
+      document.body.classList.remove("overflow-x-hidden");
     };
   }, []);
 
@@ -58,7 +61,6 @@ const Index = () => {
       <WhyBlackhubSection />
       <FreeSection />
       <TestimonialsSection />
-      <ContactSection />
       <Footer />
       <WhatsAppButton />
     </div>
