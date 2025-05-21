@@ -52,8 +52,8 @@ export default function Navbar() {
           <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Por que BlackHub?
           </a>
-          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
-            Planos
+          <a href="#free" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
+            Gratuito
           </a>
           <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Depoimentos
@@ -93,8 +93,8 @@ export default function Navbar() {
           <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Por que BlackHub?
           </a>
-          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
-            Planos
+          <a href="#free" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
+            Gratuito
           </a>
           <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Depoimentos

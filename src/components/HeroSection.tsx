@@ -38,12 +38,14 @@ export default function HeroSection() {
                 Falar com Especialista
               </Button>
             </a>
-            <Button 
-              variant="outline" 
-              className="border-white/20 hover:bg-white/5 text-lg px-8 py-6 rounded-xl w-full sm:w-auto"
-            >
-              Conheça os Planos
-            </Button>
+            <a href="#free">
+              <Button 
+                variant="outline" 
+                className="border-white/20 hover:bg-white/5 text-lg px-8 py-6 rounded-xl w-full sm:w-auto"
+              >
+                Conheça BlackHub
+              </Button>
+            </a>
           </div>
         </div>
 
@@ -115,7 +117,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Floating checkout card */}
+            {/* Floating checkout card - Modified to remove tax */}
             <div className="absolute -bottom-10 -right-10 w-56 bg-blackhub-dark-gray border border-gray-800 rounded-lg shadow-lg p-3 animate-float">
               <div className="flex justify-between items-center mb-2">
                 <h4 className="text-sm font-medium">Checkout</h4>
@@ -129,8 +131,8 @@ export default function HeroSection() {
               </div>
               <div className="bg-blackhub-light-gray/30 p-2 rounded-md mb-3">
                 <div className="flex justify-between text-xs">
-                  <span className="text-gray-400">Taxa:</span>
-                  <span className="font-medium text-blackhub-lime">2.5%</span>
+                  <span className="text-gray-400">Status:</span>
+                  <span className="font-medium text-blackhub-lime">Gratuito</span>
                 </div>
               </div>
               <button className="w-full py-1.5 bg-blackhub-lime rounded-md text-xs font-medium text-black">
