@@ -29,16 +29,16 @@ export default function PricingSection() {
   const plans: PricingPlan[] = [
     {
       name: "Inicial",
-      price: isAnnual ? "R$ 299" : "R$ 349",
+      price: "Gratuito",
       description: "Ideal para negócios em fase inicial com volume moderado de transações",
       features: [
         { text: "Checkout personalizado", included: true },
         { text: "Dashboard básico", included: true },
         { text: "Até 100 transações/mês", included: true },
-        { text: "Taxa de 2.99% + R$0,50", included: true },
+        { text: "Sem taxas adicionais", included: true },
         { text: "Suporte por e-mail", included: true },
         { text: "Notificações por e-mail", included: true },
-        { text: "Saques em até 14 dias", included: true },
+        { text: "Processamento em até 14 dias", included: true },
         { text: "API básica", included: false },
         { text: "Múltiplos usuários", included: false },
       ],
@@ -47,16 +47,16 @@ export default function PricingSection() {
     {
       name: "Profissional",
       popular: true,
-      price: isAnnual ? "R$ 599" : "R$ 699",
+      price: "Gratuito",
       description: "Perfeito para empresas em crescimento que buscam escalabilidade",
       features: [
         { text: "Checkout personalizado", included: true },
         { text: "Dashboard completo", included: true },
         { text: "Até 1.000 transações/mês", included: true },
-        { text: "Taxa de 2.49% + R$0,40", included: true },
+        { text: "Sem taxas adicionais", included: true },
         { text: "Suporte prioritário", included: true },
         { text: "Notificações em tempo real", included: true },
-        { text: "Saques em até 7 dias", included: true },
+        { text: "Processamento em até 7 dias", included: true },
         { text: "API completa", included: true },
         { text: "Múltiplos usuários", included: true },
       ],
@@ -64,16 +64,16 @@ export default function PricingSection() {
     },
     {
       name: "Empresarial",
-      price: "Personalizado",
+      price: "Gratuito",
       description: "Solução completa para grandes empresas com alto volume de transações",
       features: [
         { text: "Checkout totalmente customizável", included: true },
         { text: "Dashboard white label completo", included: true },
         { text: "Transações ilimitadas", included: true },
-        { text: "Taxa personalizada", included: true },
+        { text: "Sem taxas adicionais", included: true },
         { text: "Suporte dedicado 24/7", included: true },
         { text: "Sistema de notificações avançado", included: true },
-        { text: "Saques diários", included: true },
+        { text: "Processamento diário", included: true },
         { text: "API avançada com webhooks", included: true },
         { text: "Gerenciamento de equipe", included: true },
       ],
@@ -90,8 +90,8 @@ export default function PricingSection() {
             Escolha o plano ideal para o tamanho e necessidades da sua empresa
           </p>
           
-          {/* Billing toggle */}
-          <div className="flex items-center justify-center gap-4 mb-10">
+          {/* Billing toggle - Removed since all plans are free */}
+          {/* <div className="flex items-center justify-center gap-4 mb-10">
             <span className={`text-sm ${!isAnnual ? "text-gray-400" : "text-white"}`}>Mensal</span>
             
             <button 
@@ -110,7 +110,7 @@ export default function PricingSection() {
             <span className={`text-sm ${isAnnual ? "text-white" : "text-gray-400"}`}>
               Anual <span className="text-blackhub-lime">(-15%)</span>
             </span>
-          </div>
+          </div> */}
         </div>
 
         <div 
@@ -138,7 +138,7 @@ export default function PricingSection() {
               <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
               <div className="mb-4">
                 <span className="text-3xl md:text-4xl font-bold">{plan.price}</span>
-                {plan.price !== "Personalizado" && (
+                {plan.price !== "Gratuito" && (
                   <span className="text-gray-400">/mês</span>
                 )}
               </div>

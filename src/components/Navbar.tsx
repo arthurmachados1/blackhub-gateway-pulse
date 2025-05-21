@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,35 +26,39 @@ export default function Navbar() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className={cn("fixed top-0 w-full z-50 transition-all duration-300", 
-      scrolled ? "bg-blackhub-dark-gray/90 backdrop-blur-lg py-3 shadow-lg" : "bg-transparent py-5")}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      scrolled ? "bg-blackhub-dark-gray/90 backdrop-blur-lg py-3 shadow-lg" : "bg-transparent py-4 sm:py-5")}>
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <div className="h-9 w-9 rounded bg-blackhub-lime flex items-center justify-center">
-            <span className="text-black font-bold text-xl">B</span>
+          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded bg-blackhub-lime flex items-center justify-center">
+            <span className="text-black font-bold text-lg sm:text-xl">B</span>
           </div>
-          <span className="ml-2 text-xl font-bold">
+          <span className="ml-2 text-lg sm:text-xl font-bold">
             Black<span className="text-blackhub-lime">Hub</span>
           </span>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-gray-300 hover:text-blackhub-lime transition-colors">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <a href="#features" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Recursos
           </a>
-          <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors">
+          <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Por que BlackHub?
           </a>
-          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors">
+          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Planos
           </a>
-          <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors">
+          <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors text-sm lg:text-base">
             Depoimentos
           </a>
-          <a href="#contact" className="px-5 py-2 rounded-lg bg-blackhub-lime text-black font-semibold hover:bg-blackhub-lime-dark transition-colors">
+          <a href="#contact" className="mobile-button px-4 lg:px-5 py-2 rounded-lg bg-blackhub-lime text-black font-semibold hover:bg-blackhub-lime-dark transition-colors text-sm lg:text-base">
             Contato
           </a>
         </div>
@@ -61,7 +67,7 @@ export default function Navbar() {
         <div className="md:hidden">
           <button 
             onClick={toggleMobileMenu} 
-            className="text-white focus:outline-none"
+            className="mobile-button text-white focus:outline-none p-1"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -79,21 +85,21 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={cn("md:hidden transition-all duration-300 ease-in-out overflow-hidden bg-blackhub-dark-gray/95 backdrop-blur-lg",
-        mobileMenuOpen ? "max-h-64" : "max-h-0")}>
-        <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
-          <a href="#features" className="text-gray-300 hover:text-blackhub-lime transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+        mobileMenuOpen ? "max-h-[300px] py-4" : "max-h-0")}>
+        <div className="container mx-auto px-4 flex flex-col space-y-4">
+          <a href="#features" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Recursos
           </a>
-          <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+          <a href="#why-blackhub" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Por que BlackHub?
           </a>
-          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+          <a href="#pricing" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Planos
           </a>
-          <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+          <a href="#testimonials" className="text-gray-300 hover:text-blackhub-lime transition-colors py-3 text-center" onClick={closeMenu}>
             Depoimentos
           </a>
-          <a href="#contact" className="px-5 py-2 rounded-lg bg-blackhub-lime text-black font-semibold hover:bg-blackhub-lime-dark transition-colors inline-block w-fit" onClick={() => setMobileMenuOpen(false)}>
+          <a href="#contact" className="mobile-button px-5 py-3 rounded-lg bg-blackhub-lime text-black font-semibold hover:bg-blackhub-lime-dark transition-colors mx-auto text-center w-full" onClick={closeMenu}>
             Contato
           </a>
         </div>
