@@ -1,13 +1,29 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { CheckCircle } from "lucide-react";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [highlightAnimation, setHighlightAnimation] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Create animation effect for the highlighted text
+    const intervalId = setInterval(() => {
+      setHighlightAnimation(prev => !prev);
+    }, 2000);
+    
+    return () => clearInterval(intervalId);
   }, []);
+
+  const features = [
+    "Sem taxa de manutenção ou custos extras",
+    "Conversão direta para saque em cripto",
+    "Tecnologia exclusiva com código próprio",
+    "Checkout e pixel altamente otimizado",
+  ];
 
   return (
     <section className="min-h-screen bg-blackhub-black pt-20 relative overflow-hidden">
@@ -23,11 +39,31 @@ export default function HeroSection() {
           }`}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Revolucione seu sistema de <span className="text-gradient">pagamentos</span>
+            Seu próprio gateway de pagamentos. <br />
+            <span className="flex flex-wrap items-center">
+              <span className={`text-blackhub-lime transition-all duration-500 ${highlightAnimation ? 'opacity-80 scale-105' : 'opacity-100 scale-100'}`}>
+                Sem taxas.
+              </span>
+              <span className="mx-2"></span>
+              <span className={`text-blackhub-lime transition-all duration-500 ${!highlightAnimation ? 'opacity-80 scale-105' : 'opacity-100 scale-100'}`}>
+                Sem limites.
+              </span>
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300">
-            Tecnologia white label para transformar sua empresa com soluções completas de pagamentos digitais.
-          </p>
+          
+          <div className="pt-4 space-y-3">
+            {features.map((feature, index) => (
+              <div 
+                key={index} 
+                className="flex items-center gap-2 text-gray-200 animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <CheckCircle size={18} className="text-blackhub-lime" fill="rgba(198,255,0,0.2)" />
+                <span>{feature}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
             <a 
               href="https://api.whatsapp.com/send?phone=5512345678901&text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20da%20BlackHub"
@@ -117,7 +153,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Floating checkout card - Modified to remove tax */}
+            {/* Floating checkout card - Updated to show it's free */}
             <div className="absolute -bottom-10 -right-10 w-56 bg-blackhub-dark-gray border border-gray-800 rounded-lg shadow-lg p-3 animate-float">
               <div className="flex justify-between items-center mb-2">
                 <h4 className="text-sm font-medium">Checkout</h4>
